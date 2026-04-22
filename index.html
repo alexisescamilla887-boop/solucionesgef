@@ -6,6 +6,8 @@
 
 <title>Soluciones GEF | Seguridad y Tecnología</title>
 
+<meta name="description" content="Soluciones GEF: cámaras de seguridad, redes, electricidad y control de acceso en México.">
+
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&family=Open+Sans&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 
@@ -25,7 +27,7 @@ nav{
     top:0;
     background:rgba(0,0,0,0.85);
     backdrop-filter:blur(10px);
-    padding:15px 40px;
+    padding:15px 30px;
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -47,14 +49,7 @@ nav a{
     align-items:center;
     text-align:center;
     position:relative;
-}
-
-.hero video{
-    position:absolute;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    z-index:-2;
+    background:url('https://cdn.pixabay.com/photo/2016/11/29/03/53/security-camera-1868068_1280.jpg') center/cover;
 }
 
 .overlay{
@@ -62,12 +57,11 @@ nav a{
     width:100%;
     height:100%;
     background:rgba(0,0,0,0.7);
-    z-index:-1;
 }
 
-.logo-hero{width:170px;margin-bottom:20px;}
+.logo-hero{width:150px;margin-bottom:20px;z-index:2;}
 
-h1{font-size:55px;font-family:'Montserrat';}
+h1{font-size:50px;font-family:'Montserrat';z-index:2;}
 .gold{color:#c8a96a;}
 
 h2{font-family:'Montserrat';}
@@ -81,6 +75,7 @@ h2{font-family:'Montserrat';}
     text-decoration:none;
     margin:10px;
     transition:0.3s;
+    z-index:2;
 }
 .btn:hover{
     background:#c8a96a;
@@ -95,17 +90,20 @@ section{
 
 /* SERVICIOS */
 .grid{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
     gap:20px;
 }
 
 .card{
-    width:250px;
     background:#111;
     padding:12px;
     border-radius:12px;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
 }
 
 .card img{
@@ -158,7 +156,7 @@ section{
     display:flex;
     justify-content:center;
     flex-wrap:wrap;
-    gap:25px;
+    gap:20px;
 }
 
 .brands span{
@@ -175,99 +173,101 @@ section{
     border-radius:12px;
 }
 
+/* WHATSAPP */
+.whatsapp{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25D366;
+    color:white;
+    padding:15px;
+    border-radius:50%;
+    font-size:22px;
+    text-decoration:none;
+}
+
 /* FOOTER */
 footer{
     text-align:center;
     padding:20px;
     color:#777;
 }
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    h1{font-size:32px;}
+}
 </style>
 </head>
 
 <body>
 
-<!-- NAV -->
 <nav>
-<img src="https://i.imgur.com/98MHMI1.jpeg" style="height:55px;">
+<img src="https://i.imgur.com/98MHMI1.jpeg" style="height:50px;">
 <div>
 <a href="#inicio">Inicio</a>
 <a href="#servicios">Servicios</a>
 <a href="#proyectos">Proyectos</a>
-<a href="#nosotros">Nosotros</a>
 <a href="#contacto">Contacto</a>
 </div>
 </nav>
 
-<!-- HERO -->
 <div id="inicio" class="hero">
-
-<video autoplay muted loop playsinline>
-<source src="https://cdn.coverr.co/videos/coverr-security-camera-3775/1080p.mp4">
-</video>
-
 <div class="overlay"></div>
 
 <img src="https://i.imgur.com/98MHMI1.jpeg" class="logo-hero">
 
 <h1>SOLUCIONES <span class="gold">GEF</span></h1>
+<p style="z-index:2;color:#ccc;">Seguridad, redes y energía para tu empresa</p>
 
-<h2>Ingeniería en seguridad, redes y energía</h2>
-
-<p style="max-width:700px;color:#ccc;">
-Infraestructura tecnológica para protección, control y conectividad en México.
-</p>
-
-<div style="margin-top:40px;">
-<a class="btn" href="#contacto">📄 Cotización</a>
-<a class="btn" href="https://wa.me/528116112044">💬 WhatsApp</a>
+<div style="margin-top:30px;">
+<a class="btn" href="#contacto">Cotización</a>
+<a class="btn" href="https://wa.me/5218116112044">WhatsApp</a>
+</div>
 </div>
 
-</div>
-
-<!-- SERVICIOS -->
 <section id="servicios">
 <h2 class="gold">Servicios</h2>
 
 <div class="grid">
 
 <div class="card">
-<img src="https://i.imgur.com/7v6RZ9L.jpg">
+<img src="https://cdn.pixabay.com/photo/2016/11/29/03/53/security-camera-1868068_1280.jpg" loading="lazy">
 <p>Cámaras de Seguridad</p>
 </div>
 
 <div class="card">
-<img src="https://i.imgur.com/3ZQ3Z6T.jpg">
+<img src="https://cdn.pixabay.com/photo/2017/08/06/22/01/electrician-2597699_1280.jpg" loading="lazy">
 <p>Instalaciones Eléctricas</p>
 </div>
 
 <div class="card">
-<img src="https://i.imgur.com/WvQXK6p.jpg">
+<img src="https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_1280.jpg" loading="lazy">
 <p>Redes Empresariales</p>
 </div>
 
 <div class="card">
-<img src="https://i.imgur.com/zY4kR8R.jpg">
+<img src="https://cdn.pixabay.com/photo/2015/05/31/10/55/access-control-791071_1280.jpg" loading="lazy">
 <p>Control de Acceso</p>
 </div>
 
 <div class="card">
-<img src="https://i.imgur.com/N7lQ9mX.jpg">
+<img src="https://cdn.pixabay.com/photo/2017/01/06/19/15/fire-1956855_1280.jpg" loading="lazy">
 <p>Detección de Incendios</p>
 </div>
 
 </div>
 </section>
 
-<!-- PROYECTOS -->
 <section id="proyectos">
 <h2 class="gold">Proyectos</h2>
 
 <div class="carousel">
 <div class="slides" id="slides">
 
-<img src="https://i.imgur.com/Vw6Q8Jr.jpg">
-<img src="https://i.imgur.com/4rQn8Xz.jpg">
-<img src="https://i.imgur.com/mH7dK9L.jpg">
+<img src="https://cdn.pixabay.com/photo/2016/11/21/15/46/architecture-1846600_1280.jpg">
+<img src="https://cdn.pixabay.com/photo/2015/05/15/14/47/building-768815_1280.jpg">
+<img src="https://cdn.pixabay.com/photo/2016/11/29/05/08/adult-1868750_1280.jpg">
 
 </div>
 
@@ -276,27 +276,8 @@ Infraestructura tecnológica para protección, control y conectividad en México
 </div>
 </section>
 
-<!-- NOSOTROS -->
-<section id="nosotros">
-<h2 class="gold">Sobre Nosotros</h2>
-<p style="max-width:800px;margin:auto;color:#ccc;">
-Empresa especializada en soluciones tecnológicas de seguridad electrónica, redes e infraestructura eléctrica en México.
-</p>
-
-<h2 style="margin-top:40px;">Marcas</h2>
-<div class="brands">
-<span>Hikvision</span>
-<span>Dahua</span>
-<span>Cisco</span>
-<span>Schneider</span>
-<span>Ubiquiti</span>
-</div>
-</section>
-
-<!-- CONTACTO -->
 <section id="contacto">
 <h2 class="gold">Cobertura Nacional</h2>
-
 <div id="map"></div>
 
 <p style="margin-top:20px;color:#c8a96a;">
@@ -313,6 +294,8 @@ Empresa especializada en soluciones tecnológicas de seguridad electrónica, red
 © 2019–2026 Soluciones GEF
 </footer>
 
+<a class="whatsapp" href="https://wa.me/5218116112044">💬</a>
+
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script>
@@ -320,11 +303,9 @@ const map = L.map('map').setView([23.6345,-102.5528],5);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
-L.circle([19.4326,-99.1332],{radius:60000,color:'#c8a96a'}).addTo(map);
-L.circle([25.6866,-100.3161],{radius:60000,color:'#c8a96a'}).addTo(map);
-L.circle([22.1565,-100.9855],{radius:60000,color:'#c8a96a'}).addTo(map);
+L.marker([22.1565,-100.9855]).addTo(map)
+.bindPopup("San Luis Potosí - Base");
 
-/* carrusel */
 let i=0;
 function move(s){
 const slides=document.getElementById("slides");
