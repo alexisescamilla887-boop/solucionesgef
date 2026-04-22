@@ -7,6 +7,7 @@
 <title>Soluciones GEF | Seguridad y Redes</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&family=Open+Sans&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -38,11 +39,7 @@ nav a{
     margin-left:20px;
 }
 
-/* LOGO */
-.logo{height:55px;}
-.logo-hero{width:180px;margin-bottom:20px;}
-
-/* HERO CON VIDEO */
+/* HERO */
 .hero{
     height:100vh;
     display:flex;
@@ -54,30 +51,25 @@ nav a{
     overflow:hidden;
 }
 
-/* VIDEO FONDO */
-.bg-video{
+.hero video{
     position:absolute;
-    top:0;
-    left:0;
     width:100%;
     height:100%;
     object-fit:cover;
     z-index:-2;
 }
 
-/* OSCURECER VIDEO */
 .overlay{
     position:absolute;
-    top:0;
-    left:0;
     width:100%;
     height:100%;
     background:rgba(0,0,0,0.65);
     z-index:-1;
 }
 
+.logo-hero{width:180px;margin-bottom:20px;}
+
 .hero h1{font-size:55px;font-family:'Montserrat';}
-.hero p{color:#ccc;}
 .gold{color:#c8a96a;}
 
 /* BOTONES */
@@ -94,43 +86,35 @@ nav a{
 
 /* SECCIONES */
 section{
-    padding:100px 20px;
+    padding:90px 20px;
     text-align:center;
     background:rgba(0,0,0,0.85);
 }
 
 h2{font-family:'Montserrat';margin-bottom:20px;}
 
-/* SERVICIOS */
-.services{
+/* GRID */
+.grid{
     display:flex;
     flex-wrap:wrap;
     justify-content:center;
+    gap:20px;
 }
 
 .card{
     width:260px;
-    margin:15px;
-    padding:15px;
-    border-radius:15px;
     background:#111;
-    transition:.4s;
+    padding:12px;
+    border-radius:12px;
+    overflow:hidden;
 }
-.card:hover{transform:translateY(-10px);}
+
 .card img{
     width:100%;
     height:150px;
     object-fit:cover;
     border-radius:10px;
     margin-bottom:10px;
-}
-
-/* PROYECTOS */
-.proyectos{
-    max-width:750px;
-    margin:auto;
-    line-height:1.6;
-    color:#ccc;
 }
 
 /* CARRUSEL */
@@ -151,7 +135,7 @@ h2{font-family:'Montserrat';margin-bottom:20px;}
 .slides img{
     width:100%;
     flex-shrink:0;
-    height:450px;
+    height:420px;
     object-fit:cover;
 }
 
@@ -160,42 +144,32 @@ h2{font-family:'Montserrat';margin-bottom:20px;}
     top:50%;
     transform:translateY(-50%);
     background:rgba(0,0,0,0.6);
-    color:white;
     border:none;
-    padding:10px 15px;
-    cursor:pointer;
-    font-size:22px;
+    color:white;
+    padding:10px;
     border-radius:50%;
+    cursor:pointer;
 }
 
 .prev{left:10px;}
 .next{right:10px;}
 
-.prev:hover,.next:hover{
-    background:#c8a96a;
-    color:black;
+/* MAPA */
+#map{
+    width:90%;
+    max-width:900px;
+    height:420px;
+    margin:30px auto;
+    border-radius:15px;
+    overflow:hidden;
 }
 
-/* CONTACTO */
-input,textarea,select{
-    width:100%;
-    padding:10px;
-    margin:10px 0;
-    border:none;
-    border-radius:5px;
-}
-
-/* WHATSAPP */
-.whatsapp{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    background:#25D366;
-    padding:15px;
-    border-radius:50%;
-    font-size:22px;
-    color:white;
-    text-decoration:none;
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:20px;
+    color:#777;
+    background:black;
 }
 
 /* MODAL */
@@ -216,37 +190,35 @@ input,textarea,select{
     border-radius:10px;
     width:90%;
     max-width:400px;
-    text-align:center;
 }
 
-/* FOOTER */
-footer{
-    text-align:center;
-    padding:20px;
-    background:black;
-    color:#777;
+input,textarea,select{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
 }
 </style>
 </head>
 
 <body>
 
+<!-- NAV -->
 <nav>
-<img src="https://i.imgur.com/98MHMI1.jpeg" class="logo">
+<img src="https://i.imgur.com/98MHMI1.jpeg" style="height:55px;">
 <div>
 <a href="#inicio">Inicio</a>
 <a href="#servicios">Servicios</a>
-<a href="#galeria">Galería</a>
 <a href="#proyectos">Proyectos</a>
+<a href="#mapa">Cobertura</a>
 <a href="#contacto">Contacto</a>
 </div>
 </nav>
 
-<!-- HERO CON VIDEO -->
+<!-- HERO -->
 <div id="inicio" class="hero">
 
-<video autoplay muted loop playsinline class="bg-video">
-<source src="https://cdn.coverr.co/videos/coverr-security-camera-3775/1080p.mp4" type="video/mp4">
+<video autoplay muted loop playsinline>
+<source src="https://cdn.coverr.co/videos/coverr-security-camera-3775/1080p.mp4">
 </video>
 
 <div class="overlay"></div>
@@ -255,51 +227,78 @@ footer{
 
 <h1>SOLUCIONES <span class="gold">GEF</span></h1>
 <p>Seguridad • Redes • Electricidad</p>
-<p>San Luis Potosí • Monterrey</p>
 
 <div>
+<a class="btn" onclick="openQuote()">Cotización</a>
 <a href="https://wa.me/528116112044" class="btn">WhatsApp</a>
-<a href="tel:8116112044" class="btn">Llamar</a>
-<a class="btn" onclick="openQuote()">Cotización automática</a>
 </div>
 
 </div>
 
-<!-- SERVICIOS -->
+<!-- SERVICIOS (IMÁGENES ARREGLADAS) -->
 <section id="servicios">
 <h2 class="gold">Servicios</h2>
 
-<div class="services">
-<div class="card"><img src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=800&q=80"><h3>Cámaras</h3></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1621905251189-08b45d6a1f1a?auto=format&fit=crop&w=800&q=80"><h3>Electricidad</h3></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80"><h3>Redes</h3></div>
-</div>
-</section>
+<div class="grid">
 
-<!-- GALERÍA -->
-<section id="galeria">
-<h2 class="gold">Galería de Proyectos</h2>
-
-<div class="carousel">
-<div class="slides" id="slides">
-
-<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80">
-<img src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=1200&q=80">
-<img src="https://images.unsplash.com/photo-1621905251189-08b45d6a1f1a?auto=format&fit=crop&w=1200&q=80">
-<img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80">
-
+<div class="card">
+<img src="https://images.pexels.com/photos/430208/pexels-photo-430208.jpeg">
+<p>Cámaras de Seguridad</p>
 </div>
 
-<button class="prev" onclick="moveSlide(-1)">❮</button>
-<button class="next" onclick="moveSlide(1)">❯</button>
+<div class="card">
+<img src="https://images.pexels.com/photos/159220/security-laptop-computer-camera-159220.jpeg">
+<p>Instalaciones Eléctricas</p>
+</div>
+
+<div class="card">
+<img src="https://images.pexels.com/photos/442150/pexels-photo-442150.jpeg">
+<p>Redes Empresariales</p>
+</div>
+
+<div class="card">
+<img src="https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg">
+<p>Control de Acceso</p>
+</div>
+
+<div class="card">
+<img src="https://images.pexels.com/photos/266487/pexels-photo-266487.jpeg">
+<p>Detección de Incendios</p>
+</div>
+
 </div>
 </section>
 
 <!-- PROYECTOS -->
 <section id="proyectos">
 <h2 class="gold">Proyectos</h2>
-<p class="proyectos">
-Instalaciones profesionales en seguridad, redes y electricidad en San Luis Potosí y Monterrey.
+
+<div class="carousel">
+<div class="slides" id="slides">
+
+<img src="https://images.pexels.com/photos/159304/network-cables-159304.jpeg">
+<img src="https://images.pexels.com/photos/2881232/pexels-photo-2881232.jpeg">
+<img src="https://images.pexels.com/photos/1181354/pexels-photo-1181354.jpeg">
+
+</div>
+
+<button class="prev" onclick="move(-1)">❮</button>
+<button class="next" onclick="move(1)">❯</button>
+</div>
+</section>
+
+<!-- COBERTURA -->
+<section id="mapa">
+<h2 class="gold">Cobertura Nacional</h2>
+
+<p style="color:#ccc;max-width:700px;margin:auto;">
+Brindamos servicios de instalación, mantenimiento y soporte técnico en todo México para proyectos residenciales, comerciales e industriales.
+</p>
+
+<div id="map"></div>
+
+<p style="color:#c8a96a;font-weight:bold;margin-top:10px;">
+📍 Zonas activas de operación en México
 </p>
 </section>
 
@@ -310,73 +309,86 @@ Instalaciones profesionales en seguridad, redes y electricidad en San Luis Potos
 <p>📧 alexis.escamilla.solucionesgef@gmail.com</p>
 </section>
 
-<a href="https://wa.me/528116112044" class="whatsapp">💬</a>
+<footer>
+© 2019–2026 Soluciones GEF. Ingeniería en seguridad, redes y electricidad.
+</footer>
 
-<footer>© 2026 Soluciones GEF</footer>
-
-<!-- MODAL COTIZACIÓN -->
-<div id="quoteModal" class="modal">
+<!-- MODAL -->
+<div id="modal" class="modal">
 <div class="modal-content">
-
-<h2 class="gold">Cotización automática</h2>
+<h2 class="gold">Cotización</h2>
 
 <input id="nombre" placeholder="Nombre">
 <select id="servicio">
-<option>Cámaras de Seguridad</option>
-<option>Instalaciones Eléctricas</option>
+<option>Cámaras</option>
+<option>Electricidad</option>
 <option>Redes</option>
-<option>Control de Acceso</option>
+<option>Detección de Incendios</option>
 </select>
 
-<textarea id="detalle" placeholder="Describe tu proyecto"></textarea>
+<textarea id="detalle" placeholder="Proyecto"></textarea>
 
-<button class="btn" onclick="sendQuote()">Enviar por WhatsApp</button>
-<br><br>
-<button class="btn" onclick="closeQuote()">Cerrar</button>
-
+<button class="btn" onclick="send()">Enviar</button>
+<button class="btn" onclick="closeM()">Cerrar</button>
 </div>
 </div>
+
+<!-- MAPA -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script>
-let index = 0;
+const map = L.map('map').setView([23.6345, -102.5528], 5);
 
-function moveSlide(step){
-const slides = document.getElementById("slides");
-const total = slides.children.length;
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+attribution:'&copy; OpenStreetMap'
+}).addTo(map);
 
-index += step;
+const zonas=[
+["San Luis Potosí",22.1565,-100.9855],
+["Monterrey",25.6866,-100.3161],
+["CDMX",19.4326,-99.1332],
+["Guadalajara",20.6597,-103.3496],
+["Querétaro",20.5888,-100.3899]
+];
 
-if(index < 0) index = total - 1;
-if(index >= total) index = 0;
+zonas.forEach(z=>{
+L.circle([z[1],z[2]],{
+color:"#c8a96a",
+fillColor:"#c8a96a",
+fillOpacity:0.4,
+radius:60000
+}).addTo(map).bindPopup(z[0]);
+});
 
-slides.style.transform = `translateX(${-index * 100}%)`;
+/* CARRUSEL */
+let i=0;
+function move(s){
+const slides=document.getElementById("slides");
+const total=slides.children.length;
+i+=s;
+if(i<0)i=total-1;
+if(i>=total)i=0;
+slides.style.transform=`translateX(${-i*100}%)`;
 }
+setInterval(()=>move(1),4000);
 
-setInterval(()=>{ moveSlide(1); },4000);
-
+/* MODAL */
 function openQuote(){
-document.getElementById('quoteModal').style.display='flex';
+document.getElementById("modal").style.display="flex";
 }
-
-function closeQuote(){
-document.getElementById('quoteModal').style.display='none';
+function closeM(){
+document.getElementById("modal").style.display="none";
 }
+function send(){
+let n=document.getElementById("nombre").value;
+let s=document.getElementById("servicio").value;
+let d=document.getElementById("detalle").value;
 
-function sendQuote(){
-let nombre=document.getElementById('nombre').value;
-let servicio=document.getElementById('servicio').value;
-let detalle=document.getElementById('detalle').value;
+let msg=`Hola cotización:%0ANombre:${n}%0AServicio:${s}%0ADetalle:${d}`;
 
-let msg=
-`Hola quiero cotización:%0A`+
-`Nombre: ${nombre}%0A`+
-`Servicio: ${servicio}%0A`+
-`Detalles: ${detalle}`;
-
-window.open(`https://wa.me/528116112044?text=${msg}`,'_blank');
+window.open(`https://wa.me/528116112044?text=${msg}`);
 }
 </script>
 
 </body>
 </html>
-
