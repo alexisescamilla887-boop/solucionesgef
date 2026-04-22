@@ -92,7 +92,7 @@ section{
     text-align:center;
 }
 
-/* GRID SERVICIOS */
+/* GRID */
 .grid{
     display:flex;
     flex-wrap:wrap;
@@ -115,7 +115,7 @@ section{
     margin-bottom:10px;
 }
 
-/* CARRUSEL PROYECTOS */
+/* CARRUSEL */
 .carousel{
     position:relative;
     width:90%;
@@ -224,50 +224,50 @@ Infraestructura tecnológica para protección, control y conectividad en México
 
 </div>
 
-<!-- SERVICIOS -->
+<!-- SERVICIOS (IMÁGENES FIABLES) -->
 <section id="servicios">
 <h2 class="gold">Servicios</h2>
 
 <div class="grid">
 
 <div class="card">
-<img src="https://images.pexels.com/photos/430208/pexels-photo-430208.jpeg">
+<img src="https://source.unsplash.com/800x600/?security,camera">
 <p>Cámaras de Seguridad</p>
 </div>
 
 <div class="card">
-<img src="https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg">
+<img src="https://source.unsplash.com/800x600/?electrician,tools">
 <p>Instalaciones Eléctricas</p>
 </div>
 
 <div class="card">
-<img src="https://images.pexels.com/photos/442150/pexels-photo-442150.jpeg">
+<img src="https://source.unsplash.com/800x600/?network,cables">
 <p>Redes Empresariales</p>
 </div>
 
 <div class="card">
-<img src="https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg">
+<img src="https://source.unsplash.com/800x600/?access,control">
 <p>Control de Acceso</p>
 </div>
 
 <div class="card">
-<img src="https://images.pexels.com/photos/266487/pexels-photo-266487.jpeg">
+<img src="https://source.unsplash.com/800x600/?fire,alarm">
 <p>Detección de Incendios</p>
 </div>
 
 </div>
 </section>
 
-<!-- PROYECTOS -->
+<!-- PROYECTOS (ARREGLADO 100%) -->
 <section id="proyectos">
 <h2 class="gold">Proyectos</h2>
 
 <div class="carousel">
 <div class="slides" id="slides">
 
-<img src="https://images.pexels.com/photos/325229/pexels-photo-325229.jpeg">
-<img src="https://images.pexels.com/photos/2881232/pexels-photo-2881232.jpeg">
-<img src="https://images.pexels.com/photos/1181354/pexels-photo-1181354.jpeg">
+<img src="https://source.unsplash.com/1200x700/?security,installation">
+<img src="https://source.unsplash.com/1200x700/?cctv,system">
+<img src="https://source.unsplash.com/1200x700/?network,infrastructure">
 
 </div>
 
@@ -282,7 +282,7 @@ Infraestructura tecnológica para protección, control y conectividad en México
 <h2 class="gold">Sobre Nosotros</h2>
 
 <p style="max-width:800px;margin:auto;color:#ccc;">
-Somos una empresa especializada en soluciones tecnológicas de seguridad electrónica, redes e infraestructura eléctrica con enfoque profesional en México.
+Empresa especializada en soluciones tecnológicas de seguridad electrónica, redes e infraestructura eléctrica en México.
 </p>
 
 <h2 style="margin-top:50px;">Marcas que utilizamos</h2>
@@ -297,7 +297,7 @@ Somos una empresa especializada en soluciones tecnológicas de seguridad electr�
 
 </section>
 
-<!-- CONTACTO / MAPA -->
+<!-- CONTACTO -->
 <section id="contacto">
 
 <h2 class="gold">Cobertura Nacional</h2>
@@ -319,7 +319,7 @@ Somos una empresa especializada en soluciones tecnológicas de seguridad electr�
 © 2019–2026 Soluciones GEF | Ingeniería en Seguridad y Tecnología
 </footer>
 
-<!-- MAPA -->
+<!-- MAPA + CARRUSEL -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script>
@@ -333,7 +333,7 @@ L.circle([19.4326,-99.1332],{radius:60000,color:'#c8a96a'}).addTo(map).bindPopup
 L.circle([25.6866,-100.3161],{radius:60000,color:'#c8a96a'}).addTo(map).bindPopup("Monterrey");
 L.circle([22.1565,-100.9855],{radius:60000,color:'#c8a96a'}).addTo(map).bindPopup("San Luis Potosí");
 
-/* carrusel */
+/* CARRUSEL */
 let i=0;
 function move(s){
 const slides=document.getElementById("slides");
@@ -341,4 +341,10 @@ const total=slides.children.length;
 i+=s;
 if(i<0)i=total-1;
 if(i>=total)i=0;
-slides.style.transform=`translateX(${-i*100
+slides.style.transform=`translateX(${-i*100}%)`;
+}
+setInterval(()=>move(1),4000);
+</script>
+
+</body>
+</html>
