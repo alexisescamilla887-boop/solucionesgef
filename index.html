@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Soluciones GEF</title>
+
+<title>Soluciones GEF | Ingeniería en Seguridad y Redes</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&family=Open+Sans&display=swap" rel="stylesheet">
 
@@ -13,6 +14,7 @@
 body{
     font-family:'Open Sans',sans-serif;
     color:white;
+    background:black;
     scroll-behavior:smooth;
 }
 
@@ -21,7 +23,7 @@ nav{
     position:fixed;
     width:100%;
     top:0;
-    background:rgba(0,0,0,0.7);
+    background:rgba(0,0,0,0.75);
     backdrop-filter:blur(10px);
     padding:15px 40px;
     display:flex;
@@ -37,15 +39,8 @@ nav a{
 }
 
 /* LOGO */
-.logo{
-    height:55px;
-    filter: drop-shadow(0 0 12px rgba(200,169,106,0.8));
-}
-
-.logo-hero{
-    width:180px;
-    margin-bottom:20px;
-}
+.logo{height:55px;}
+.logo-hero{width:180px;margin-bottom:20px;}
 
 /* HERO */
 .hero{
@@ -55,22 +50,15 @@ nav a{
     justify-content:center;
     align-items:center;
     text-align:center;
-
-    background: 
-    linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)),
+    background:
+    linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.9)),
     url('https://images.unsplash.com/photo-1581092919535-7146ff1a590d');
-
     background-size:cover;
     background-position:center;
 }
 
-.hero h1{
-    font-size:55px;
-    font-family:'Montserrat';
-}
-
+.hero h1{font-size:55px;font-family:'Montserrat';}
 .hero p{color:#ccc;}
-
 .gold{color:#c8a96a;}
 
 /* BOTONES */
@@ -81,12 +69,9 @@ nav a{
     text-decoration:none;
     margin:10px;
     border-radius:30px;
+    cursor:pointer;
 }
-
-.btn:hover{
-    background:#c8a96a;
-    color:black;
-}
+.btn:hover{background:#c8a96a;color:black;}
 
 /* SECCIONES */
 section{
@@ -95,10 +80,7 @@ section{
     background:rgba(0,0,0,0.85);
 }
 
-h2{
-    font-family:'Montserrat';
-    margin-bottom:20px;
-}
+h2{font-family:'Montserrat';margin-bottom:20px;}
 
 /* SERVICIOS */
 .services{
@@ -115,11 +97,7 @@ h2{
     background:#111;
     transition:.4s;
 }
-
-.card:hover{
-    transform:translateY(-10px);
-}
-
+.card:hover{transform:translateY(-10px);}
 .card img{
     width:100%;
     height:150px;
@@ -130,26 +108,19 @@ h2{
 
 /* PROYECTOS */
 .proyectos{
-    max-width:700px;
+    max-width:750px;
     margin:auto;
     line-height:1.6;
     color:#ccc;
 }
 
-/* FORM */
-input, textarea{
-    width:90%;
-    max-width:400px;
-    margin:10px;
-    padding:12px;
+/* CONTACTO */
+input,textarea,select{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
     border:none;
     border-radius:5px;
-}
-
-button{
-    padding:12px 25px;
-    background:#c8a96a;
-    border:none;
 }
 
 /* WHATSAPP */
@@ -165,15 +136,33 @@ button{
     text-decoration:none;
 }
 
-/* ANIMACIONES */
-.fade{
-    opacity:0;
-    transform:translateY(20px);
-    transition:1s;
+/* MODAL COTIZACIÓN */
+.modal{
+    display:none;
+    position:fixed;
+    top:0;left:0;
+    width:100%;height:100%;
+    background:rgba(0,0,0,0.85);
+    justify-content:center;
+    align-items:center;
+    z-index:2000;
 }
-.show{
-    opacity:1;
-    transform:translateY(0);
+
+.modal-content{
+    background:#111;
+    padding:20px;
+    border-radius:10px;
+    width:90%;
+    max-width:400px;
+    text-align:center;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:20px;
+    background:black;
+    color:#777;
 }
 </style>
 </head>
@@ -182,7 +171,6 @@ button{
 
 <nav>
 <img src="https://i.imgur.com/98MHMI1.jpeg" class="logo">
-
 <div>
 <a href="#inicio">Inicio</a>
 <a href="#servicios">Servicios</a>
@@ -191,93 +179,99 @@ button{
 </div>
 </nav>
 
-<!-- INICIO -->
+<!-- HERO -->
 <div id="inicio" class="hero">
 <img src="https://i.imgur.com/98MHMI1.jpeg" class="logo-hero">
 
 <h1>SOLUCIONES <span class="gold">GEF</span></h1>
 <p>Ingeniería en seguridad, redes y electricidad</p>
-<p>Instalación profesional y atención inmediata</p>
+<p>San Luis Potosí • Monterrey</p>
 
 <div>
-<a href="https://wa.me/528116112044?text=Hola,%20quiero%20información" class="btn">WhatsApp</a>
+<a href="https://wa.me/528116112044" class="btn">WhatsApp</a>
 <a href="tel:8116112044" class="btn">Llamar</a>
+<a class="btn" onclick="openQuote()">Cotización automática</a>
 </div>
 </div>
 
 <!-- SERVICIOS -->
-<section id="servicios" class="fade">
+<section id="servicios">
 <h2 class="gold">Servicios</h2>
 
 <div class="services">
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1581092335878-3f3d0a3f4f6d">
-<h3>Cámaras de Seguridad</h3>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1581092919535-7146ff1a590d">
-<h3>Instalaciones Eléctricas</h3>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1593642532400-2682810df593">
-<h3>Redes</h3>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1558002038-1055907df827">
-<h3>Control de Acceso</h3>
-</div>
-
+<div class="card"><img src="https://images.unsplash.com/photo-1581092335878-3f3d0a3f4f6d"><h3>Cámaras</h3></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1581092919535-7146ff1a590d"><h3>Electricidad</h3></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1593642532400-2682810df593"><h3>Redes</h3></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1558002038-1055907df827"><h3>Acceso</h3></div>
 </div>
 </section>
 
 <!-- PROYECTOS -->
-<section id="proyectos" class="fade">
+<section id="proyectos">
 <h2 class="gold">Proyectos</h2>
-
 <div class="proyectos">
-<p>
-Hemos trabajado en instalaciones residenciales y empresariales implementando soluciones de seguridad, redes y sistemas eléctricos con altos estándares de calidad.
-</p>
-
-<p>
-Cobertura en San Luis Potosí y Monterrey, Nuevo León, brindando atención profesional y soluciones confiables.
-</p>
+<p>Instalaciones en San Luis Potosí y Monterrey en sistemas de seguridad, redes y electricidad profesional.</p>
 </div>
-
 </section>
 
 <!-- CONTACTO -->
-<section id="contacto" class="fade">
+<section id="contacto">
 <h2 class="gold">Contacto</h2>
 
-<p><strong>Teléfono:</strong> 8116112044</p>
-<p><strong>Email:</strong> alexis.escamilla@solucionesgef.com</p>
-<p><strong>Cobertura:</strong> San Luis Potosí y Monterrey, Nuevo León</p>
-
-<form action="mailto:alexis.escamilla@solucionesgef.com" method="post" enctype="text/plain">
-<input type="text" placeholder="Nombre" required>
-<input type="email" placeholder="Correo" required>
-<textarea placeholder="Mensaje"></textarea>
-<button>Enviar</button>
-</form>
+<p>📞 8116112044</p>
+<p>📧 alexis.escamilla.solucionesgef@gmail.com</p>
 
 </section>
 
-<a href="https://wa.me/528116112044?text=Hola,%20quiero%20cotizar" class="whatsapp">💬</a>
+<a href="https://wa.me/528116112044" class="whatsapp">💬</a>
+
+<footer>© 2026 Soluciones GEF</footer>
+
+<!-- MODAL COTIZACIÓN -->
+<div id="quoteModal" class="modal">
+<div class="modal-content">
+
+<h2 class="gold">Cotización automática</h2>
+
+<input id="nombre" placeholder="Nombre">
+<select id="servicio">
+<option>Cámaras de Seguridad</option>
+<option>Instalaciones Eléctricas</option>
+<option>Redes</option>
+<option>Control de Acceso</option>
+</select>
+
+<textarea id="detalle" placeholder="Describe tu proyecto"></textarea>
+
+<button class="btn" onclick="sendQuote()">Enviar por WhatsApp</button>
+<br><br>
+<button class="btn" onclick="closeQuote()">Cerrar</button>
+
+</div>
+</div>
 
 <script>
-const elements=document.querySelectorAll('.fade');
-window.addEventListener('scroll',()=>{
-elements.forEach(el=>{
-if(el.getBoundingClientRect().top < window.innerHeight-50){
-el.classList.add('show');
+function openQuote(){
+document.getElementById('quoteModal').style.display='flex';
 }
-});
-});
+
+function closeQuote(){
+document.getElementById('quoteModal').style.display='none';
+}
+
+function sendQuote(){
+let nombre=document.getElementById('nombre').value;
+let servicio=document.getElementById('servicio').value;
+let detalle=document.getElementById('detalle').value;
+
+let msg=
+`Hola quiero cotización:%0A`+
+`Nombre: ${nombre}%0A`+
+`Servicio: ${servicio}%0A`+
+`Detalles: ${detalle}`;
+
+window.open(`https://wa.me/528116112044?text=${msg}`,'_blank');
+}
 </script>
 
 </body>
