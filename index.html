@@ -47,7 +47,6 @@ nav a{
     align-items:center;
     text-align:center;
     position:relative;
-    overflow:hidden;
 }
 
 .hero video{
@@ -66,21 +65,12 @@ nav a{
     z-index:-1;
 }
 
-.logo-hero{
-    width:170px;
-    margin-bottom:20px;
-}
+.logo-hero{width:170px;margin-bottom:20px;}
 
-h1{
-    font-size:55px;
-    font-family:'Montserrat';
-}
-
+h1{font-size:55px;font-family:'Montserrat';}
 .gold{color:#c8a96a;}
 
-h2{
-    font-family:'Montserrat';
-}
+h2{font-family:'Montserrat';}
 
 /* BOTONES */
 .btn{
@@ -92,7 +82,6 @@ h2{
     margin:10px;
     transition:0.3s;
 }
-
 .btn:hover{
     background:#c8a96a;
     color:#000;
@@ -170,7 +159,6 @@ section{
     justify-content:center;
     flex-wrap:wrap;
     gap:25px;
-    opacity:0.9;
 }
 
 .brands span{
@@ -182,4 +170,171 @@ section{
 /* MAPA */
 #map{
     width:90%;
-    height:400
+    height:400px;
+    margin:auto;
+    border-radius:12px;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:20px;
+    color:#777;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+<img src="https://i.imgur.com/98MHMI1.jpeg" style="height:55px;">
+<div>
+<a href="#inicio">Inicio</a>
+<a href="#servicios">Servicios</a>
+<a href="#proyectos">Proyectos</a>
+<a href="#nosotros">Nosotros</a>
+<a href="#contacto">Contacto</a>
+</div>
+</nav>
+
+<!-- HERO -->
+<div id="inicio" class="hero">
+
+<video autoplay muted loop playsinline>
+<source src="https://cdn.coverr.co/videos/coverr-security-camera-3775/1080p.mp4">
+</video>
+
+<div class="overlay"></div>
+
+<img src="https://i.imgur.com/98MHMI1.jpeg" class="logo-hero">
+
+<h1>SOLUCIONES <span class="gold">GEF</span></h1>
+
+<h2>Ingeniería en seguridad, redes y energía</h2>
+
+<p style="max-width:700px;color:#ccc;">
+Infraestructura tecnológica para protección, control y conectividad en México.
+</p>
+
+<div style="margin-top:40px;">
+<a class="btn" href="#contacto">📄 Cotización</a>
+<a class="btn" href="https://wa.me/528116112044">💬 WhatsApp</a>
+</div>
+
+</div>
+
+<!-- SERVICIOS -->
+<section id="servicios">
+<h2 class="gold">Servicios</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1581092335878-3f3d0a3f4f6d?auto=format&fit=crop&w=800&q=80">
+<p>Cámaras de Seguridad</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1581091215367-59ab6b1e6a0b?auto=format&fit=crop&w=800&q=80">
+<p>Instalaciones Eléctricas</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1593642532400-2682810df593?auto=format&fit=crop&w=800&q=80">
+<p>Redes Empresariales</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=800&q=80">
+<p>Control de Acceso</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?auto=format&fit=crop&w=800&q=80">
+<p>Detección de Incendios</p>
+</div>
+
+</div>
+</section>
+
+<!-- PROYECTOS -->
+<section id="proyectos">
+<h2 class="gold">Proyectos</h2>
+
+<div class="carousel">
+<div class="slides" id="slides">
+
+<img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80">
+<img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=1200&q=80">
+<img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80">
+
+</div>
+
+<button class="prev" onclick="move(-1)">❮</button>
+<button class="next" onclick="move(1)">❯</button>
+</div>
+</section>
+
+<!-- NOSOTROS -->
+<section id="nosotros">
+<h2 class="gold">Sobre Nosotros</h2>
+<p style="max-width:800px;margin:auto;color:#ccc;">
+Empresa especializada en soluciones tecnológicas de seguridad electrónica, redes e infraestructura eléctrica en México.
+</p>
+
+<h2 style="margin-top:40px;">Marcas</h2>
+<div class="brands">
+<span>Hikvision</span>
+<span>Dahua</span>
+<span>Cisco</span>
+<span>Schneider</span>
+<span>Ubiquiti</span>
+</div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+<h2 class="gold">Cobertura Nacional</h2>
+<div id="map"></div>
+
+<p style="margin-top:20px;color:#c8a96a;">
+📍 México – Instalación y soporte técnico
+</p>
+
+<p>
+📞 8116112044 <br>
+📧 alexis.escamilla.solucionesgef@gmail.com
+</p>
+</section>
+
+<footer>
+© 2019–2026 Soluciones GEF
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+const map = L.map('map').setView([23.6345,-102.5528],5);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+L.circle([19.4326,-99.1332],{radius:60000,color:'#c8a96a'}).addTo(map);
+L.circle([25.6866,-100.3161],{radius:60000,color:'#c8a96a'}).addTo(map);
+L.circle([22.1565,-100.9855],{radius:60000,color:'#c8a96a'}).addTo(map);
+
+/* carrusel */
+let i=0;
+function move(s){
+const slides=document.getElementById("slides");
+const total=slides.children.length;
+i+=s;
+if(i<0)i=total-1;
+if(i>=total)i=0;
+slides.style.transform=`translateX(${-i*100}%)`;
+}
+setInterval(()=>move(1),4000);
+</script>
+
+</body>
+</html>
