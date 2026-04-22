@@ -92,7 +92,7 @@ section{
     text-align:center;
 }
 
-/* GRID */
+/* GRID SERVICIOS */
 .grid{
     display:flex;
     flex-wrap:wrap;
@@ -103,9 +103,54 @@ section{
 .card{
     width:250px;
     background:#111;
-    padding:15px;
+    padding:12px;
     border-radius:12px;
 }
+
+.card img{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+    border-radius:10px;
+    margin-bottom:10px;
+}
+
+/* CARRUSEL PROYECTOS */
+.carousel{
+    position:relative;
+    width:90%;
+    max-width:900px;
+    margin:auto;
+    overflow:hidden;
+    border-radius:15px;
+}
+
+.slides{
+    display:flex;
+    transition:transform 0.6s ease-in-out;
+}
+
+.slides img{
+    width:100%;
+    flex-shrink:0;
+    height:420px;
+    object-fit:cover;
+}
+
+.prev,.next{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    background:rgba(0,0,0,0.6);
+    border:none;
+    color:white;
+    padding:10px;
+    border-radius:50%;
+    cursor:pointer;
+}
+
+.prev{left:10px;}
+.next{right:10px;}
 
 /* MARCAS */
 .brands{
@@ -129,6 +174,13 @@ section{
     margin:auto;
     border-radius:12px;
 }
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:20px;
+    color:#777;
+}
 </style>
 </head>
 
@@ -140,6 +192,7 @@ section{
 <div>
 <a href="#inicio">Inicio</a>
 <a href="#servicios">Servicios</a>
+<a href="#proyectos">Proyectos</a>
 <a href="#nosotros">Nosotros</a>
 <a href="#contacto">Contacto</a>
 </div>
@@ -176,11 +229,50 @@ Infraestructura tecnológica para protección, control y conectividad en México
 <h2 class="gold">Servicios</h2>
 
 <div class="grid">
-<div class="card">📹 Cámaras de Seguridad</div>
-<div class="card">⚡ Electricidad</div>
-<div class="card">🌐 Redes Empresariales</div>
-<div class="card">🔐 Control de Acceso</div>
-<div class="card">🔥 Detección de Incendios</div>
+
+<div class="card">
+<img src="https://images.pexels.com/photos/430208/pexels-photo-430208.jpeg">
+<p>Cámaras de Seguridad</p>
+</div>
+
+<div class="card">
+<img src="https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg">
+<p>Instalaciones Eléctricas</p>
+</div>
+
+<div class="card">
+<img src="https://images.pexels.com/photos/442150/pexels-photo-442150.jpeg">
+<p>Redes Empresariales</p>
+</div>
+
+<div class="card">
+<img src="https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg">
+<p>Control de Acceso</p>
+</div>
+
+<div class="card">
+<img src="https://images.pexels.com/photos/266487/pexels-photo-266487.jpeg">
+<p>Detección de Incendios</p>
+</div>
+
+</div>
+</section>
+
+<!-- PROYECTOS -->
+<section id="proyectos">
+<h2 class="gold">Proyectos</h2>
+
+<div class="carousel">
+<div class="slides" id="slides">
+
+<img src="https://images.pexels.com/photos/325229/pexels-photo-325229.jpeg">
+<img src="https://images.pexels.com/photos/2881232/pexels-photo-2881232.jpeg">
+<img src="https://images.pexels.com/photos/1181354/pexels-photo-1181354.jpeg">
+
+</div>
+
+<button class="prev" onclick="move(-1)">❮</button>
+<button class="next" onclick="move(1)">❯</button>
 </div>
 </section>
 
@@ -190,7 +282,7 @@ Infraestructura tecnológica para protección, control y conectividad en México
 <h2 class="gold">Sobre Nosotros</h2>
 
 <p style="max-width:800px;margin:auto;color:#ccc;">
-Somos una empresa especializada en soluciones tecnológicas de seguridad electrónica, redes e infraestructura eléctrica con enfoque profesional en instalaciones residenciales, comerciales e industriales en todo México.
+Somos una empresa especializada en soluciones tecnológicas de seguridad electrónica, redes e infraestructura eléctrica con enfoque profesional en México.
 </p>
 
 <h2 style="margin-top:50px;">Marcas que utilizamos</h2>
@@ -205,7 +297,7 @@ Somos una empresa especializada en soluciones tecnológicas de seguridad electr�
 
 </section>
 
-<!-- MAPA -->
+<!-- CONTACTO / MAPA -->
 <section id="contacto">
 
 <h2 class="gold">Cobertura Nacional</h2>
@@ -223,7 +315,7 @@ Somos una empresa especializada en soluciones tecnológicas de seguridad electr�
 
 </section>
 
-<footer style="text-align:center;padding:20px;color:#777;">
+<footer>
 © 2019–2026 Soluciones GEF | Ingeniería en Seguridad y Tecnología
 </footer>
 
@@ -240,7 +332,13 @@ attribution:'&copy; OpenStreetMap'
 L.circle([19.4326,-99.1332],{radius:60000,color:'#c8a96a'}).addTo(map).bindPopup("CDMX");
 L.circle([25.6866,-100.3161],{radius:60000,color:'#c8a96a'}).addTo(map).bindPopup("Monterrey");
 L.circle([22.1565,-100.9855],{radius:60000,color:'#c8a96a'}).addTo(map).bindPopup("San Luis Potosí");
-</script>
 
-</body>
-</html>
+/* carrusel */
+let i=0;
+function move(s){
+const slides=document.getElementById("slides");
+const total=slides.children.length;
+i+=s;
+if(i<0)i=total-1;
+if(i>=total)i=0;
+slides.style.transform=`translateX(${-i*100
