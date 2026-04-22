@@ -13,6 +13,7 @@
 body{
     font-family:'Open Sans',sans-serif;
     color:white;
+    scroll-behavior:smooth;
 }
 
 /* NAV */
@@ -35,6 +36,7 @@ nav a{
     margin-left:20px;
 }
 
+/* LOGO */
 .logo{
     height:55px;
     filter: drop-shadow(0 0 12px rgba(200,169,106,0.8));
@@ -88,7 +90,7 @@ nav a{
 
 /* SECCIONES */
 section{
-    padding:80px 20px;
+    padding:100px 20px;
     text-align:center;
     background:rgba(0,0,0,0.85);
 }
@@ -124,6 +126,14 @@ h2{
     object-fit:cover;
     border-radius:10px;
     margin-bottom:10px;
+}
+
+/* PROYECTOS */
+.proyectos{
+    max-width:700px;
+    margin:auto;
+    line-height:1.6;
+    color:#ccc;
 }
 
 /* FORM */
@@ -174,17 +184,20 @@ button{
 <img src="https://i.imgur.com/98MHMI1.jpeg" class="logo">
 
 <div>
-<a href="#">Inicio</a>
+<a href="#inicio">Inicio</a>
 <a href="#servicios">Servicios</a>
+<a href="#proyectos">Proyectos</a>
 <a href="#contacto">Contacto</a>
 </div>
 </nav>
 
-<div class="hero">
+<!-- INICIO -->
+<div id="inicio" class="hero">
 <img src="https://i.imgur.com/98MHMI1.jpeg" class="logo-hero">
 
 <h1>SOLUCIONES <span class="gold">GEF</span></h1>
 <p>Ingeniería en seguridad, redes y electricidad</p>
+<p>Instalación profesional y atención inmediata</p>
 
 <div>
 <a href="https://wa.me/528116112044?text=Hola,%20quiero%20información" class="btn">WhatsApp</a>
@@ -192,6 +205,7 @@ button{
 </div>
 </div>
 
+<!-- SERVICIOS -->
 <section id="servicios" class="fade">
 <h2 class="gold">Servicios</h2>
 
@@ -199,12 +213,12 @@ button{
 
 <div class="card">
 <img src="https://images.unsplash.com/photo-1581092335878-3f3d0a3f4f6d">
-<h3>Cámaras</h3>
+<h3>Cámaras de Seguridad</h3>
 </div>
 
 <div class="card">
 <img src="https://images.unsplash.com/photo-1581092919535-7146ff1a590d">
-<h3>Electricidad</h3>
+<h3>Instalaciones Eléctricas</h3>
 </div>
 
 <div class="card">
@@ -220,31 +234,29 @@ button{
 </div>
 </section>
 
-<section class="fade">
+<!-- PROYECTOS -->
+<section id="proyectos" class="fade">
 <h2 class="gold">Proyectos</h2>
 
-<div class="services">
+<div class="proyectos">
+<p>
+Hemos trabajado en instalaciones residenciales y empresariales implementando soluciones de seguridad, redes y sistemas eléctricos con altos estándares de calidad.
+</p>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1581090700227-1e8b2c4d1b9f">
+<p>
+Cobertura en San Luis Potosí y Monterrey, Nuevo León, brindando atención profesional y soluciones confiables.
+</p>
 </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1558002038-1055907df827">
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1593642532400-2682810df593">
-</div>
-
-</div>
 </section>
 
+<!-- CONTACTO -->
 <section id="contacto" class="fade">
 <h2 class="gold">Contacto</h2>
 
-<p>Tel: 8116112044</p>
-<p>Email: alexis.escamilla@solucionesgef.com</p>
+<p><strong>Teléfono:</strong> 8116112044</p>
+<p><strong>Email:</strong> alexis.escamilla@solucionesgef.com</p>
+<p><strong>Cobertura:</strong> San Luis Potosí y Monterrey, Nuevo León</p>
 
 <form action="mailto:alexis.escamilla@solucionesgef.com" method="post" enctype="text/plain">
 <input type="text" placeholder="Nombre" required>
