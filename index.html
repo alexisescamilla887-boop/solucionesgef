@@ -78,11 +78,16 @@ nav a{
     border:1px solid #c8a96a;
     color:#c8a96a;
     text-decoration:none;
-    margin:10px;
     border-radius:30px;
-    cursor:pointer;
+    transition:0.3s;
+    font-weight:600;
 }
-.btn:hover{background:#c8a96a;color:black;}
+
+.btn:hover{
+    background:#c8a96a;
+    color:black;
+    transform:scale(1.05);
+}
 
 /* SECCIONES */
 section{
@@ -228,9 +233,14 @@ input,textarea,select{
 <h1>SOLUCIONES <span class="gold">GEF</span></h1>
 <p>Seguridad • Redes • Electricidad</p>
 
-<div>
-<a class="btn" onclick="openQuote()">Cotización</a>
-<a href="https://wa.me/528116112044" class="btn">WhatsApp</a>
+<h2 style="font-size:28px; margin-top:20px; font-weight:600;">
+Soluciones integrales en seguridad electrónica, redes y energía.
+</h2>
+
+<!-- BOTONES PREMIUM (SEPARADOS Y PRO) -->
+<div style="margin-top:45px; display:flex; gap:20px; justify-content:center; flex-wrap:wrap;">
+    <a class="btn" onclick="openQuote()">📄 Solicitar Cotización</a>
+    <a href="https://wa.me/528116112044" class="btn">💬 WhatsApp</a>
 </div>
 
 </div>
