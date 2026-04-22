@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Soluciones GEF | Seguridad y Redes</title>
+<title>Soluciones GEF | Ingeniería en Seguridad</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&family=Open+Sans&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
@@ -14,9 +14,8 @@
 
 body{
     font-family:'Open Sans',sans-serif;
-    color:white;
     background:black;
-    scroll-behavior:smooth;
+    color:white;
 }
 
 /* NAV */
@@ -24,7 +23,7 @@ nav{
     position:fixed;
     width:100%;
     top:0;
-    background:rgba(0,0,0,0.75);
+    background:rgba(0,0,0,0.8);
     backdrop-filter:blur(10px);
     padding:15px 40px;
     display:flex;
@@ -48,7 +47,6 @@ nav a{
     align-items:center;
     text-align:center;
     position:relative;
-    overflow:hidden;
 }
 
 .hero video{
@@ -63,40 +61,36 @@ nav a{
     position:absolute;
     width:100%;
     height:100%;
-    background:rgba(0,0,0,0.65);
+    background:rgba(0,0,0,0.7);
     z-index:-1;
 }
 
-.logo-hero{width:180px;margin-bottom:20px;}
+.logo-hero{width:170px;margin-bottom:20px;}
 
-.hero h1{font-size:55px;font-family:'Montserrat';}
+h1{font-size:55px;font-family:'Montserrat';}
 .gold{color:#c8a96a;}
+
+h2{font-family:'Montserrat';margin-bottom:15px;}
 
 /* BOTONES */
 .btn{
-    padding:12px 28px;
+    padding:12px 26px;
     border:1px solid #c8a96a;
     color:#c8a96a;
-    text-decoration:none;
     border-radius:30px;
-    transition:0.3s;
-    font-weight:600;
+    text-decoration:none;
+    margin:10px;
 }
-
 .btn:hover{
     background:#c8a96a;
     color:black;
-    transform:scale(1.05);
 }
 
 /* SECCIONES */
 section{
     padding:90px 20px;
     text-align:center;
-    background:rgba(0,0,0,0.85);
 }
-
-h2{font-family:'Montserrat';margin-bottom:20px;}
 
 /* GRID */
 .grid{
@@ -107,100 +101,33 @@ h2{font-family:'Montserrat';margin-bottom:20px;}
 }
 
 .card{
-    width:260px;
+    width:250px;
     background:#111;
-    padding:12px;
+    padding:15px;
     border-radius:12px;
-    overflow:hidden;
 }
 
-.card img{
-    width:100%;
-    height:150px;
-    object-fit:cover;
-    border-radius:10px;
-    margin-bottom:10px;
-}
-
-/* CARRUSEL */
-.carousel{
-    position:relative;
-    width:90%;
-    max-width:900px;
-    margin:auto;
-    overflow:hidden;
-    border-radius:15px;
-}
-
-.slides{
+/* MARCAS */
+.brands{
     display:flex;
-    transition:transform 0.6s ease-in-out;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:30px;
+    opacity:0.85;
 }
 
-.slides img{
-    width:100%;
-    flex-shrink:0;
-    height:420px;
-    object-fit:cover;
+.brands span{
+    padding:10px 15px;
+    background:#111;
+    border-radius:8px;
 }
-
-.prev,.next{
-    position:absolute;
-    top:50%;
-    transform:translateY(-50%);
-    background:rgba(0,0,0,0.6);
-    border:none;
-    color:white;
-    padding:10px;
-    border-radius:50%;
-    cursor:pointer;
-}
-
-.prev{left:10px;}
-.next{right:10px;}
 
 /* MAPA */
 #map{
     width:90%;
-    max-width:900px;
-    height:420px;
-    margin:30px auto;
-    border-radius:15px;
-    overflow:hidden;
-}
-
-/* FOOTER */
-footer{
-    text-align:center;
-    padding:20px;
-    color:#777;
-    background:black;
-}
-
-/* MODAL */
-.modal{
-    display:none;
-    position:fixed;
-    top:0;left:0;
-    width:100%;height:100%;
-    background:rgba(0,0,0,0.85);
-    justify-content:center;
-    align-items:center;
-    z-index:2000;
-}
-
-.modal-content{
-    background:#111;
-    padding:20px;
-    border-radius:10px;
-    width:90%;
-    max-width:400px;
-}
-
-input,textarea,select{
-    width:100%;
-    padding:10px;
-    margin:8px 0;
+    height:400px;
+    margin:auto;
+    border-radius:12px;
 }
 </style>
 </head>
@@ -213,8 +140,7 @@ input,textarea,select{
 <div>
 <a href="#inicio">Inicio</a>
 <a href="#servicios">Servicios</a>
-<a href="#proyectos">Proyectos</a>
-<a href="#mapa">Cobertura</a>
+<a href="#nosotros">Nosotros</a>
 <a href="#contacto">Contacto</a>
 </div>
 </nav>
@@ -231,16 +157,16 @@ input,textarea,select{
 <img src="https://i.imgur.com/98MHMI1.jpeg" class="logo-hero">
 
 <h1>SOLUCIONES <span class="gold">GEF</span></h1>
-<p>Seguridad • Redes • Electricidad</p>
 
-<h2 style="font-size:28px; margin-top:20px; font-weight:600;">
-Soluciones integrales en seguridad electrónica, redes y energía.
-</h2>
+<h2>Ingeniería en seguridad, redes y energía</h2>
 
-<!-- BOTONES PREMIUM (SEPARADOS Y PRO) -->
-<div style="margin-top:45px; display:flex; gap:20px; justify-content:center; flex-wrap:wrap;">
-    <a class="btn" onclick="openQuote()">📄 Solicitar Cotización</a>
-    <a href="https://wa.me/528116112044" class="btn">💬 WhatsApp</a>
+<p style="max-width:700px;color:#ccc;">
+Infraestructura tecnológica para protección, control y conectividad en México.
+</p>
+
+<div style="margin-top:40px;">
+<a class="btn" href="#contacto">📄 Cotización</a>
+<a class="btn" href="https://wa.me/528116112044">💬 WhatsApp</a>
 </div>
 
 </div>
@@ -250,98 +176,56 @@ Soluciones integrales en seguridad electrónica, redes y energía.
 <h2 class="gold">Servicios</h2>
 
 <div class="grid">
-
-<div class="card">
-<img src="https://images.pexels.com/photos/430208/pexels-photo-430208.jpeg">
-<p>Cámaras de Seguridad</p>
-</div>
-
-<div class="card">
-<img src="https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg">
-<p>Instalaciones Eléctricas</p>
-</div>
-
-<div class="card">
-<img src="https://images.pexels.com/photos/442150/pexels-photo-442150.jpeg">
-<p>Redes Empresariales</p>
-</div>
-
-<div class="card">
-<img src="https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg">
-<p>Control de Acceso</p>
-</div>
-
-<div class="card">
-<img src="https://images.pexels.com/photos/266487/pexels-photo-266487.jpeg">
-<p>Detección de Incendios</p>
-</div>
-
+<div class="card">📹 Cámaras de Seguridad</div>
+<div class="card">⚡ Electricidad</div>
+<div class="card">🌐 Redes Empresariales</div>
+<div class="card">🔐 Control de Acceso</div>
+<div class="card">🔥 Detección de Incendios</div>
 </div>
 </section>
 
-<!-- PROYECTOS -->
-<section id="proyectos">
-<h2 class="gold">Proyectos</h2>
+<!-- NOSOTROS -->
+<section id="nosotros">
 
-<div class="carousel">
-<div class="slides" id="slides">
+<h2 class="gold">Sobre Nosotros</h2>
 
-<img src="https://images.pexels.com/photos/325229/pexels-photo-325229.jpeg">
-<img src="https://images.pexels.com/photos/2881232/pexels-photo-2881232.jpeg">
-<img src="https://images.pexels.com/photos/1181354/pexels-photo-1181354.jpeg">
-
-</div>
-
-<button class="prev" onclick="move(-1)">❮</button>
-<button class="next" onclick="move(1)">❯</button>
-</div>
-</section>
-
-<!-- COBERTURA -->
-<section id="mapa">
-<h2 class="gold">Cobertura Nacional</h2>
-
-<p style="color:#ccc;max-width:700px;margin:auto;">
-Brindamos servicios de instalación, mantenimiento y soporte técnico en todo México para proyectos residenciales, comerciales e industriales.
+<p style="max-width:800px;margin:auto;color:#ccc;">
+Somos una empresa especializada en soluciones tecnológicas de seguridad electrónica, redes e infraestructura eléctrica con enfoque profesional en instalaciones residenciales, comerciales e industriales en todo México.
 </p>
+
+<h2 style="margin-top:50px;">Marcas que utilizamos</h2>
+
+<div class="brands">
+<span>Hikvision</span>
+<span>Dahua</span>
+<span>Cisco</span>
+<span>Schneider</span>
+<span>Ubiquiti</span>
+</div>
+
+</section>
+
+<!-- MAPA -->
+<section id="contacto">
+
+<h2 class="gold">Cobertura Nacional</h2>
 
 <div id="map"></div>
 
-<p style="color:#c8a96a;font-weight:bold;margin-top:10px;">
-📍 Zonas activas de operación en México
+<p style="margin-top:20px;color:#c8a96a;">
+📍 México – Instalación y soporte técnico
 </p>
+
+<p style="margin-top:10px;">
+📞 8116112044 <br>
+📧 alexis.escamilla.solucionesgef@gmail.com
+</p>
+
 </section>
 
-<!-- CONTACTO -->
-<section id="contacto">
-<h2 class="gold">Contacto</h2>
-<p>📞 8116112044</p>
-<p>📧 alexis.escamilla.solucionesgef@gmail.com</p>
-</section>
-
-<footer>
-© 2019–2026 Soluciones GEF. Ingeniería en seguridad, redes y electricidad.
+<footer style="text-align:center;padding:20px;color:#777;">
+© 2019–2026 Soluciones GEF | Ingeniería en Seguridad y Tecnología
 </footer>
-
-<!-- MODAL -->
-<div id="modal" class="modal">
-<div class="modal-content">
-<h2 class="gold">Cotización</h2>
-
-<input id="nombre" placeholder="Nombre">
-<select id="servicio">
-<option>Cámaras</option>
-<option>Electricidad</option>
-<option>Redes</option>
-<option>Detección de Incendios</option>
-</select>
-
-<textarea id="detalle" placeholder="Proyecto"></textarea>
-
-<button class="btn" onclick="send()">Enviar</button>
-<button class="btn" onclick="closeM()">Cerrar</button>
-</div>
-</div>
 
 <!-- MAPA -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -353,51 +237,9 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
 attribution:'&copy; OpenStreetMap'
 }).addTo(map);
 
-const zonas=[
-["San Luis Potosí",22.1565,-100.9855],
-["Monterrey",25.6866,-100.3161],
-["CDMX",19.4326,-99.1332],
-["Guadalajara",20.6597,-103.3496],
-["Querétaro",20.5888,-100.3899]
-];
-
-zonas.forEach(z=>{
-L.circle([z[1],z[2]],{
-color:"#c8a96a",
-fillColor:"#c8a96a",
-fillOpacity:0.4,
-radius:60000
-}).addTo(map).bindPopup(z[0]);
-});
-
-/* CARRUSEL */
-let i=0;
-function move(s){
-const slides=document.getElementById("slides");
-const total=slides.children.length;
-i+=s;
-if(i<0)i=total-1;
-if(i>=total)i=0;
-slides.style.transform=`translateX(${-i*100}%)`;
-}
-setInterval(()=>move(1),4000);
-
-/* MODAL */
-function openQuote(){
-document.getElementById("modal").style.display="flex";
-}
-function closeM(){
-document.getElementById("modal").style.display="none";
-}
-function send(){
-let n=document.getElementById("nombre").value;
-let s=document.getElementById("servicio").value;
-let d=document.getElementById("detalle").value;
-
-let msg=`Hola cotización:%0ANombre:${n}%0AServicio:${s}%0ADetalle:${d}`;
-
-window.open(`https://wa.me/528116112044?text=${msg}`);
-}
+L.circle([19.4326,-99.1332],{radius:60000,color:'#c8a96a'}).addTo(map).bindPopup("CDMX");
+L.circle([25.6866,-100.3161],{radius:60000,color:'#c8a96a'}).addTo(map).bindPopup("Monterrey");
+L.circle([22.1565,-100.9855],{radius:60000,color:'#c8a96a'}).addTo(map).bindPopup("San Luis Potosí");
 </script>
 
 </body>
