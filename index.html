@@ -98,6 +98,7 @@ body{
     border-radius:30px;
     text-decoration:none;
     transition:.3s;
+    cursor:pointer;
 }
 
 .btn:hover{
@@ -133,7 +134,7 @@ section{
     border-radius:10px;
 }
 
-/* CARRUSEL PREMIUM */
+/* CARRUSEL */
 .carousel{
     position:relative;
     overflow:hidden;
@@ -152,7 +153,7 @@ section{
     object-fit:cover;
 }
 
-/* BOTONES */
+/* BOTONES CARRUSEL */
 .prev, .next{
     position:absolute;
     top:50%;
@@ -191,6 +192,13 @@ section{
 
 .dots .active{
     background:#c8a96a;
+}
+
+/* FORM */
+form input, form select, form textarea{
+    padding:12px;
+    border-radius:8px;
+    border:none;
 }
 
 /* MAPA */
@@ -238,15 +246,11 @@ footer{
 
 <p class="frase">
 Protegemos tu hogar o negocio con soluciones profesionales en seguridad,
-electricidad y redes. Instalación rápida, confiable y sin complicaciones.
-</p>
-
-<p style="margin-top:10px;color:#c8a96a;">
-✔ Atención inmediata &nbsp; ✔ Instalación profesional &nbsp; ✔ Cobertura nacional
+electricidad y redes.
 </p>
 
 <div class="botones">
-<a href="https://wa.me/528116112044?text=Hola,%20quiero%20cotizar" class="btn">💬 Cotizar</a>
+<a href="#cotizacion" class="btn">💬 Cotizar</a>
 <a href="tel:+528116112044" class="btn">📞 Llamar</a>
 </div>
 </div>
@@ -284,7 +288,7 @@ electricidad y redes. Instalación rápida, confiable y sin complicaciones.
 </div>
 </section>
 
-<!-- PROYECTOS PREMIUM -->
+<!-- PROYECTOS -->
 <section>
 <h2 class="gold">Proyectos</h2>
 
@@ -294,6 +298,7 @@ electricidad y redes. Instalación rápida, confiable y sin complicaciones.
 <img src="https://raw.githubusercontent.com/alexisescamilla887-boop/solucionesgef/main/WhatsApp%20Image%202026-04-23%20at%204.34.19%20PM.jpeg">
 <img src="https://raw.githubusercontent.com/alexisescamilla887-boop/solucionesgef/main/WhatsApp%20Image%202026-04-23%20at%204.34.26%20PM.jpeg">
 <img src="https://raw.githubusercontent.com/alexisescamilla887-boop/solucionesgef/main/WhatsApp%20Image%202026-04-23%20at%204.34.23%20PM.jpeg">
+<img src="https://raw.githubusercontent.com/alexisescamilla887-boop/solucionesgef/main/WhatsApp%20Image%202026-04-23%20at%205.07.46%20PM.jpeg">
 
 </div>
 
@@ -305,6 +310,28 @@ electricidad y redes. Instalación rápida, confiable y sin complicaciones.
 
 </section>
 
+<!-- COTIZACIÓN -->
+<section id="cotizacion">
+<h2 class="gold">Cotización Rápida</h2>
+
+<form id="formCotizacion" style="max-width:500px;margin:auto;display:flex;flex-direction:column;gap:15px;">
+<input type="text" id="nombre" placeholder="Tu nombre" required>
+<input type="tel" id="telefono" placeholder="Teléfono" required>
+
+<select id="servicio">
+<option>Cámaras de Seguridad</option>
+<option>Instalaciones Eléctricas</option>
+<option>Redes</option>
+<option>Control de Acceso</option>
+<option>Detección de Incendios</option>
+</select>
+
+<textarea id="mensaje" placeholder="Describe lo que necesitas"></textarea>
+
+<button type="submit" class="btn">💬 Enviar por WhatsApp</button>
+</form>
+</section>
+
 <!-- MAPA -->
 <section>
 <h2 class="gold">Cobertura Nacional</h2>
@@ -313,11 +340,12 @@ electricidad y redes. Instalación rápida, confiable y sin complicaciones.
 
 <footer>© 2019–2026 Soluciones GEF</footer>
 
-<a href="https://wa.me/528116112044" class="whatsapp">💬</a>
+<a href="https://wa.me/528116112044?text=Hola,%20quiero%20información" class="whatsapp">💬</a>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script>
+/* CARRUSEL */
 let i=0;
 const slides=document.getElementById("slides");
 const total=slides.children.length;
@@ -339,20 +367,15 @@ dots[i].classList.add("active");
 }
 
 function nextSlide(){
-i++;
-if(i>=total)i=0;
-updateCarousel();
+i++; if(i>=total)i=0; updateCarousel();
 }
 
 function prevSlide(){
-i--;
-if(i<0)i=total-1;
-updateCarousel();
+i--; if(i<0)i=total-1; updateCarousel();
 }
 
 function goToSlide(index){
-i=index;
-updateCarousel();
+i=index; updateCarousel();
 }
 
 setInterval(nextSlide,5000);
@@ -362,9 +385,25 @@ updateCarousel();
 const map=L.map('map').setView([23.6345,-102.5528],5);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
-L.circle([19.4326,-99.1332],{radius:60000}).addTo(map);
-L.circle([25.6866,-100.3161],{radius:60000}).addTo(map);
-L.circle([22.1565,-100.9855],{radius:60000}).addTo(map);
+/* COTIZACIÓN WHATSAPP */
+document.getElementById("formCotizacion").addEventListener("submit", function(e){
+e.preventDefault();
+
+let nombre=document.getElementById("nombre").value;
+let telefono=document.getElementById("telefono").value;
+let servicio=document.getElementById("servicio").value;
+let mensaje=document.getElementById("mensaje").value;
+
+let texto=`Hola, quiero cotizar:
+
+Nombre: ${nombre}
+Teléfono: ${telefono}
+Servicio: ${servicio}
+Detalles: ${mensaje}`;
+
+let url="https://wa.me/528116112044?text="+encodeURIComponent(texto);
+window.open(url,"_blank");
+});
 </script>
 
 </body>
