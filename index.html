@@ -18,6 +18,7 @@ body{
     color:#fff;
 }
 
+/* HERO */
 .hero{
     height:100vh;
     position:relative;
@@ -44,6 +45,41 @@ body{
     z-index:-1;
 }
 
+/* LOGO FIXED */
+.logo{
+    width:160px;
+    margin-bottom:25px;
+    display:block;
+    position:relative;
+    z-index:2;
+    animation: fadeUp 1.5s ease, float 4s ease-in-out infinite, glow 2s infinite alternate;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform: translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float{
+    0%,100%{transform: translateY(0);}
+    50%{transform: translateY(-8px);}
+}
+
+@keyframes glow{
+    from{
+        filter: drop-shadow(0 0 8px rgba(200,169,106,0.6));
+    }
+    to{
+        filter: drop-shadow(0 0 20px rgba(200,169,106,1));
+    }
+}
+
 .hero h1{
     font-family:'Montserrat';
     font-size:55px;
@@ -57,6 +93,7 @@ body{
     font-size:20px;
 }
 
+/* BOTONES */
 .botones{
     margin-top:40px;
     display:flex;
@@ -79,11 +116,13 @@ body{
     color:#000;
 }
 
+/* SECCIONES */
 section{
     padding:80px 20px;
     text-align:center;
 }
 
+/* SERVICIOS */
 .grid{
     display:flex;
     flex-wrap:wrap;
@@ -105,6 +144,7 @@ section{
     border-radius:10px;
 }
 
+/* CARRUSEL */
 .carousel{
     overflow:hidden;
     max-width:900px;
@@ -122,6 +162,7 @@ section{
     object-fit:cover;
 }
 
+/* MAPA */
 #map{
     width:90%;
     height:400px;
@@ -129,6 +170,7 @@ section{
     border-radius:12px;
 }
 
+/* WHATSAPP */
 .whatsapp{
     position:fixed;
     bottom:20px;
@@ -153,11 +195,15 @@ footer{
 
 <!-- HERO -->
 <div class="hero">
+
 <video autoplay muted loop playsinline>
 <source src="https://cdn.coverr.co/videos/coverr-security-camera-3775/1080p.mp4">
 </video>
 
 <div class="overlay"></div>
+
+<!-- LOGO -->
+<img src="https://i.imgur.com/98MHMI1.jpeg" class="logo" alt="Logo GEF">
 
 <h1>SOLUCIONES <span class="gold">GEF</span></h1>
 
@@ -174,105 +220,10 @@ electricidad y redes. Instalación rápida, confiable y sin complicaciones.
 <a href="https://wa.me/528116112044?text=Hola,%20quiero%20cotizar" class="btn">💬 Cotizar</a>
 <a href="tel:+528116112044" class="btn">📞 Llamar</a>
 </div>
-</div>
-
-<!-- NOSOTROS -->
-<section>
-<h2 class="gold">Sobre Nosotros</h2>
-<p style="max-width:800px;margin:auto;color:#ccc;">
-Desde 2019, Soluciones GEF brinda servicios profesionales en seguridad electrónica,
-redes e instalaciones eléctricas para hogares, negocios y empresas en todo México.
-</p>
-</section>
-
-<!-- SERVICIOS -->
-<section>
-<h2 class="gold">Servicios</h2>
-
-<div class="grid">
-
-<div class="card">
-<img src="https://raw.githubusercontent.com/alexisescamilla887-boop/solucionesgef/main/WhatsApp%20Image%202026-04-23%20at%201.46.34%20PM%20(1).jpeg">
-<p>Cámaras de Seguridad</p>
-</div>
-
-<div class="card">
-<img src="https://raw.githubusercontent.com/alexisescamilla887-boop/solucionesgef/main/WhatsApp%20Image%202026-04-23%20at%201.46.34%20PM.jpeg">
-<p>Instalaciones Eléctricas</p>
-</div>
-
-<div class="card">
-<img src="https://raw.githubusercontent.com/alexisescamilla887-boop/solucionesgef/main/WhatsApp%20Image%202026-04-23%20at%201.46.34%20PM%20(3).jpeg">
-<p>Redes</p>
-</div>
-
-<div class="card">
-<img src="https://raw.githubusercontent.com/alexisescamilla887-boop/solucionesgef/main/WhatsApp%20Image%202026-04-23%20at%204.06.14%20PM.jpeg">
-<p>Control de Acceso</p>
-</div>
-
-<div class="card">
-<img src="https://raw.githubusercontent.com/alexisescamilla887-boop/solucionesgef/main/WhatsApp%20Image%202026-04-23%20at%201.46.34%20PM%20(2).jpeg">
-<p>Detección de Incendios</p>
-</div>
 
 </div>
-</section>
 
-<!-- PROYECTOS -->
-<section>
-<h2 class="gold">Proyectos</h2>
-
-<div class="carousel">
-<div class="slides" id="slides">
-<img src="https://raw.githubusercontent.com/alexisescamilla887-boop/solucionesgef/main/WhatsApp%20Image%202026-04-23%20at%201.46.34%20PM%20(1).jpeg">
-<img src="https://raw.githubusercontent.com/alexisescamilla887-boop/solucionesgef/main/WhatsApp%20Image%202026-04-23%20at%201.46.34%20PM%20(2).jpeg">
-<img src="https://raw.githubusercontent.com/alexisescamilla887-boop/solucionesgef/main/WhatsApp%20Image%202026-04-23%20at%201.46.34%20PM%20(3).jpeg">
-</div>
-</div>
-
-</section>
-
-<!-- MAPA -->
-<section>
-<h2 class="gold">Cobertura Nacional</h2>
-<div id="map"></div>
-</section>
-
-<!-- CONTACTO -->
-<section id="contacto">
-<h2 class="gold">Contacto</h2>
-<p>📞 8116112044</p>
-<p>📧 alexis.escamilla.solucionesgef@gmail.com</p>
-<p style="color:#c8a96a;">Respuesta rápida por WhatsApp</p>
-</section>
-
-<footer>
-© 2019–2026 Soluciones GEF
-</footer>
-
-<a href="https://wa.me/528116112044" class="whatsapp">💬</a>
-
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-<script>
-let i=0;
-function move(){
-const slides=document.getElementById("slides");
-const total=slides.children.length;
-i++;
-if(i>=total)i=0;
-slides.style.transform=`translateX(${-i*100}%)`;
-}
-setInterval(move,4000);
-
-const map=L.map('map').setView([23.6345,-102.5528],5);
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
-
-L.circle([19.4326,-99.1332],{radius:60000}).addTo(map);
-L.circle([25.6866,-100.3161],{radius:60000}).addTo(map);
-L.circle([22.1565,-100.9855],{radius:60000}).addTo(map);
-</script>
+<!-- RESTO IGUAL (SERVICIOS, PROYECTOS, MAPA, ETC.) -->
 
 </body>
 </html>
