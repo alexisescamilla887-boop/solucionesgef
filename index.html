@@ -200,11 +200,32 @@ redes e instalaciones eléctricas para hogares, negocios y empresas en todo Méx
 <h2 class="gold">Servicios</h2>
 
 <div class="grid">
-<div class="card"><img src="images/camera.jpg"><p>Cámaras de Seguridad</p></div>
-<div class="card"><img src="images/electric.jpg"><p>Instalaciones Eléctricas</p></div>
-<div class="card"><img src="images/network.jpg"><p>Redes</p></div>
-<div class="card"><img src="images/access.jpg"><p>Control de Acceso</p></div>
-<div class="card"><img src="images/fire.jpg"><p>Detección de Incendios</p></div>
+
+<div class="card">
+<img src="https://raw.githubusercontent.com/alexisescamilla887-boop/solucionesgef/main/WhatsApp%20Image%202026-04-23%20at%201.46.34%20PM%20(1).jpeg">
+<p>Cámaras de Seguridad</p>
+</div>
+
+<div class="card">
+<img src="https://raw.githubusercontent.com/alexisescamilla887-boop/solucionesgef/main/WhatsApp%20Image%202026-04-23%20at%201.46.34%20PM%20(2).jpeg">
+<p>Instalaciones Eléctricas</p>
+</div>
+
+<div class="card">
+<img src="https://raw.githubusercontent.com/alexisescamilla887-boop/solucionesgef/main/WhatsApp%20Image%202026-04-23%20at%201.46.34%20PM%20(3).jpeg">
+<p>Redes</p>
+</div>
+
+<div class="card">
+<img src="https://raw.githubusercontent.com/alexisescamilla887-boop/solucionesgef/main/WhatsApp%20Image%202026-04-23%20at%201.46.34%20PM.jpeg">
+<p>Control de Acceso</p>
+</div>
+
+<div class="card">
+<img src="https://raw.githubusercontent.com/alexisescamilla887-boop/solucionesgef/main/WhatsApp%20Image%202026-04-23%20at%201.46.34%20PM%20(1).jpeg">
+<p>Detección de Incendios</p>
+</div>
+
 </div>
 
 </section>
@@ -215,9 +236,11 @@ redes e instalaciones eléctricas para hogares, negocios y empresas en todo Méx
 
 <div class="carousel">
 <div class="slides" id="slides">
-<img src="images/proyecto1.jpg">
-<img src="images/proyecto2.jpg">
-<img src="images/proyecto3.jpg">
+
+<img src="https://raw.githubusercontent.com/alexisescamilla887-boop/solucionesgef/main/WhatsApp%20Image%202026-04-23%20at%201.46.34%20PM%20(1).jpeg">
+<img src="https://raw.githubusercontent.com/alexisescamilla887-boop/solucionesgef/main/WhatsApp%20Image%202026-04-23%20at%201.46.34%20PM%20(2).jpeg">
+<img src="https://raw.githubusercontent.com/alexisescamilla887-boop/solucionesgef/main/WhatsApp%20Image%202026-04-23%20at%201.46.34%20PM%20(3).jpeg">
+
 </div>
 </div>
 
@@ -246,7 +269,6 @@ redes e instalaciones eléctricas para hogares, negocios y empresas en todo Méx
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script>
-/* carrusel */
 let i=0;
 function move(){
 const slides=document.getElementById("slides");
@@ -257,9 +279,7 @@ slides.style.transform=`translateX(${-i*100}%)`;
 }
 setInterval(move,4000);
 
-/* mapa */
 const map=L.map('map').setView([23.6345,-102.5528],5);
-
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
 L.circle([19.4326,-99.1332],{radius:60000}).addTo(map);
